@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include partials/head %>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h3><%= page %></h3><br>
+    <h3 id="demo"></h3>
+    <div class="solList">
+      <% sols.forEach(function(sol) { %>
+      <div class="sol"><%= sol %></div>
+      <% }); %>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
+
+</html>
