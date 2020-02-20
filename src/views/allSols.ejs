@@ -3,16 +3,15 @@
 
 <head>
   <% include partials/head %>
-  <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
 <body>
   <div class="container">
     <h3><%= page %></h3><br>
-    <h3 id="demo"></h3>
+    <%- include('partials/bigSol', {sol: sols[6], data: solsData[sols[6]]});%>
     <div class="solList">
-      <% sols.forEach(function(sol) { %>
-      <div class="sol"><%= sol %></div>
+      <% sols.forEach(function(sol){ %>
+      <%- include('partials/smallSol', {sol: sol, data: solsData[sol]}); %>
       <% }); %>
     </div>
   </div>

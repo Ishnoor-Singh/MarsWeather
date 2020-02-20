@@ -1,9 +1,17 @@
-body {
+html{
   padding: 0px;
   margin: 0px;
   width:100vw;
   height:100vh;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  width:100%;
+  height:100%;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font: 14px 'Tomorrow', sans-serif;
   color: white;
 }
 
@@ -13,23 +21,139 @@ a {
 
 .container{
   display: flex;
+  margin:0px;
+  padding:0px;
   flex-direction: column;
   width:100%;
   height:100%;
   align-items: center;
   justify-content: center;
+  /* background-color: rgba(255,0,0,1); */
   background-image: url("https://www.teslarati.com/wp-content/uploads/2018/11/nasa-mars-insight-landing.jpg");
+  background-size: cover; 
+  overflow: hidden;
 }
 
 .solList{
   display: flex;  
 }
 
-.sol{
+.small-sol{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(0,0,0,0.3);
   margin: 50px;
-  font-size: 100px;
+  border: 0;
+  color:white;
+  border-radius: 10px;
+}
+
+.big-sol{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  background-color: rgba(0,0,0,0.3);
+  margin: 50px;
+  border: 0;
+  color:white;
+  border-radius: 10px;
+  flex-grow: 1;
+  width: 80%;
+  padding:40px;
+}
+
+.sol-num{
+  font-weight: 700;
+  font-size: 70px;
+  font-family: 'Tomorrow', sans-serif;
+}
+
+.sol-date{
+  font-weight: 0;
+  font-size: 30px;
+  color: #7c7c7c;
+  font-family: 'Tomorrow', sans-serif;
+
+}
+
+.sol-date-container{
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sol-row{
+  display: flex;
+  width :90%;
+}
+
+.sol-season{
+  font-family: 'Tomorrow', sans-serif;
+}
+
+.season-name{
+  font-weight: 700;
+  font-size: 70px;
+}
+
+.summer{
+  color:#fed93d;
+}
+
+.top{
+  flex-grow: 1;
+}
+
+.data-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  flex-grow:1;
+  border: 3px;
+  border-color:white;
+}
+
+.data-avg{
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 45px;
+}
+
+.data-min-max-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.data-min{
+  font-size: 30px;
+  background-color: #1976d1;
+  border-radius: 5px;
+  padding: 5px;
+  /* padding: 20px; */
+}
+
+.data-max{
+  font-size: 30px;
+  background-color: #ea4334;
+  margin-left: 30px;
+  border-radius: 5px;
+  padding: 5px;
+
+}
+.data-header{
+  background-color: #1d2851;
+  font-weight: 0;
+  font-size: 20px;
+  padding:5px;
+  border-radius:5px;
 }

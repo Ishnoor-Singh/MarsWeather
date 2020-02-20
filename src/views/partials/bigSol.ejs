@@ -1,0 +1,76 @@
+<div class=big-sol>
+    <div class="sol-row">
+        <div class="sol-date-container">
+            <h1 class="sol-num">
+                Sol <%= sol %>
+            </h1>
+            <h1 class="sol-date">
+                <%= data.date.toString().substring(0, 15) %>
+            </h1>
+        </div>
+        <div class="sol-season">
+            <% if(data.Season === "summer"){ %>
+            <h1 class="season-name summer"><i class=" icon fa fa-sun-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;Summer</h1>
+            <% } %>
+            <% if(data.Season === "fall"){ %>
+            <h1><i class="icon fa fa-leaf"></i>&nbsp;&nbsp;&nbsp;&nbsp;Fall</h1>
+            <% } %>
+            <% if(data.Season === "spring"){ %>
+            <h1><i class="icon fa fa-cloud"> </i>&nbsp;&nbsp;&nbsp;&nbsp;Spring</h1>
+            <% } %>
+            <% if(data.Season === "winter"){ %>
+            <h1><i class="icon fa fa-snowflake-o"> </i>&nbsp;&nbsp;&nbsp;&nbsp;Winter</h1>
+            <% } %>
+        </div>
+    </div>
+    <div class="sol-row">
+        <div class="data-container">
+            <span class="data-header">
+                Atmospheric Temperature
+            </span>
+            <h1 class="data-avg">
+                Avg <%= data.AT.av.toString().substring(0, 5) %> &#8457;
+            </h1>
+            <div class="data-min-max-container">
+                <h1 class="data-min">
+                    <%= data.AT.mn.toString().substring(0, 5) %> &#8457;
+                </h1>
+                <h1 class="data-max">
+                    <%= data.AT.mx.toString().substring(0, 5) %> &#8457;
+                </h1>
+            </div>
+        </div>
+        <div class="data-container">
+            <span class="data-header">
+                Atmospheric Pressure
+            </span>
+            <h1 class="data-avg">
+                Avg <%= data.PRE.av.toString().substring(0, 5) %> Pa
+            </h1>
+            <div class="data-min-max-container">
+                <h1 class="data-min">
+                    <%= data.PRE.mn.toString().substring(0, 5) %> Pa
+                </h1>
+                <h1 class="data-max">
+                    <%= data.PRE.mx.toString().substring(0, 5) %> Pa
+                </h1>
+            </div>
+        </div>
+        <div class="data-container">
+            <span class="data-header">
+                Horizontal Wind Speed
+            </span>
+            <h1 class="data-avg">
+                Avg <%= data.HWS.av.toString().substring(0, 5) %> m/s
+            </h1>
+            <div class="data-min-max-container">
+                <h1 class="data-min">
+                    <%= data.HWS.mn.toString().substring(0, 5) %> m/s
+                </h1>
+                <h1 class="data-max">
+                    <%= data.HWS.mx.toString().substring(0, 5) %> m/s
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
