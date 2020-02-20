@@ -3,11 +3,10 @@
         <% for (var i = 0; i < 25; i++) { %>
         <div class="col-md-4">
             <div class="thumbnail">
-                <img src="<%= products[i].cover %>">
+                <img src="<%= images[10].img_src %>">
                 <div class="caption">
-                    <h3><%= products[i].name %></h3>
-                    <p><%= products[i].category %></p>
-                    <p>$<%= products[i].price %></p>
+                    <h3><%= images[i].rover.name %></h3>
+                    <p><%= images[i].camera.full_name %></p>
                 </div>
             </div>
         </div>
@@ -18,7 +17,7 @@
         <% if (current == 1) { %>
         <li class="disabled"><a>First</a></li>
         <% } else { %>
-        <li><a href="/products/1">First</a></li>
+        <li><a href="/<%= sol %> /1">First</a></li>
         <% } %>
         <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
         <% if (i !== 1) { %>
@@ -28,7 +27,7 @@
         <% if (i == current) { %>
         <li class="active"><a><%= i %></a></li>
         <% } else { %>
-        <li><a href="/products/<%= i %>"><%= i %></a></li>
+        <li><a href="/<%= sol %>/<%= i %>"><%= i %></a></li>
         <% } %>
         <% if (i == Number(current) + 4 && i < pages) { %>
         <li class="disabled"><a>...</a></li>
@@ -37,7 +36,7 @@
         <% if (current == pages) { %>
         <li class="disabled"><a>Last</a></li>
         <% } else { %>
-        <li><a href="/products/<%= pages %>">Last</a></li>
+        <li><a href="/<%= sol %>/<%= pages %>">Last</a></li>
         <% } %>
     </ul>
     <% } %>
