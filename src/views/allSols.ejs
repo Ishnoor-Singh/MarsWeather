@@ -9,7 +9,7 @@
   <div class="container">
     <h3><%= page %></h3><br>
     <%- include('partials/bigSol', {sol: sols[6], data: solsData[sols[6]]});%>
-    <div class="solList">
+    <div class="sol-row">
       <% sols.forEach(function(sol){ %>
       <%- include('partials/smallSol', {sol: sol, data: solsData[sol]}); %>
       <% }); %>

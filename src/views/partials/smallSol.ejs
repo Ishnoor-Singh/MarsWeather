@@ -1,6 +1,22 @@
-<a>
+<a class="small-sol-clicker" href="/sol/<%= sol %> ">
     <div class=small-sol>
-        <h3>Sol <%= sol %></h3>
-        <h3>Avg Temp= <%= data.AT.av%></h3>
+        <h3 class="small-sol-num">Sol <%= sol %></h3>
+        <div class="sol-symbols">
+            <% if (data.AT.av > -60) { %>
+            <h3 class="small-sol-temp-high"><i class="icon fa fa-sun-o"></i></h3>
+            <%} else { %>
+            <h3 class="small-sol-temp-low"><i class="icon fa fa-snowflake"></i></h3>
+            <% } %>
+            <% if (data.PRE.av < 630) { %>
+            <h3 class="small-sol-pressure-high"><i class="icon fas fa-angle-double-down"></i></h3>
+            <%} else { %>
+            <h3 class="small-sol-pressure-low"><i class="icon fas fa-angle-double-down"></i></h3>
+            <% } %>
+            <% if (data.HWS.av < 6.1) { %>
+            <h3 class="small-sol-pressure-high"><i class="icon fas fa-wind"></i></h3>
+            <%} else { %>
+            <h3 class="small-sol-pressure-low"><i class="icon fas fa-wind"></i></h3>
+            <% } %>
+        </div>
     </div>
 </a>

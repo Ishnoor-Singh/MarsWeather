@@ -19,6 +19,46 @@ a {
   color: #00B7FF;
 }
 
+.small-sol-clicker{
+}
+
+.small-sol-clicker:hover{
+  text-decoration: none;
+}
+
+.small-sol-temp-high{
+  padding:3px;
+  color: #fed93d;
+}
+
+.small-sol-temp-low{
+  padding:3px;
+
+  color: #0753b6;
+}
+
+.sol-symbols{
+  display: flex;
+  width :90%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.small-sol-pressure-high{
+  padding:3px;
+
+  color: #ea4334;
+}
+
+.small-sol-pressure-low{
+  padding:3px;
+
+  color: #03bb48;
+}
+
+
+
 .container{
   display: flex;
   margin:0px;
@@ -31,11 +71,16 @@ a {
   /* background-color: rgba(255,0,0,1); */
   background-image: url("https://www.teslarati.com/wp-content/uploads/2018/11/nasa-mars-insight-landing.jpg");
   background-size: cover; 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
 }
 
 .solList{
   display: flex;  
+}
+.small-sol-num{
+  font-weight: 700;
 }
 
 .small-sol{
@@ -44,11 +89,13 @@ a {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.6);
   margin: 50px;
+  padding: 10px;
   border: 0;
   color:white;
   border-radius: 10px;
+  cursor:pointer;
 }
 
 .big-sol{
@@ -82,7 +129,7 @@ a {
 }
 
 .sol-date-container{
-  align-self: flex-start;
+  /* align-self: flex-start; */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -90,7 +137,10 @@ a {
 
 .sol-row{
   display: flex;
+  flex-wrap: wrap;
   width :90%;
+  align-items: center;
+  justify-content: center;
 }
 
 .sol-season{
