@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var allSolsRouter = require('./routes/allSols');
-var oneSolRouter = require('./routes/oneSol');
 
 var app = express();
 
@@ -20,7 +19,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', allSolsRouter);
-app.use('/sol', oneSolRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

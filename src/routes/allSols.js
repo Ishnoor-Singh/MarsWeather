@@ -33,4 +33,24 @@ router.get('/', function (req, res, next) {
   }).catch((err) => console.error())
 });
 
+/* GET users listing. */
+router.get('/:solNum', function (req, res, next) {
+  const solNum = req.params.solNum;
+  axios({
+    baseURL: 'https://api.nasa.gov/',
+    method: "get",
+    url: "insight_weather/?api_key=" + NASA_KEY + "&feedtype=json&ver=1.0"
+  }).then(response => {
+    if (!response.data[solNum]) {
+      res.status(404).send("Sol is not found, is it one of the last seven?").statusCod
+    }
+    return response.data[solNum];
+  }).then(data => {
+    let solData = Object.assign({}, data);
+    solData.date = new Date();
+    setDateFromString(solData.date, data["First_UTC"])
+    res.render('oneSol', { page: "Sol" + solNum, sol: solNum, data: solData });
+  })
+});
+
 module.exports = router;
