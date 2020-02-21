@@ -38,7 +38,9 @@ router.get('/', function (req, res, next) {
       setDateFromString(solsData[sol].date, response.data[sol]["First_UTC"])
     });
     res.render('allSols', { page: "Last Seven Sols", sols: solList, solsData: solsData })
-  }).catch((err) => console.error())
+  }).catch((err) => {
+    res.status(500).send(err ? err : "Internal Server Error");
+  })
 });
 
 <<<<<<< HEAD
@@ -75,6 +77,8 @@ router.get('/sol/:solNum/page/:pageNumber', function (req, res, next) {
       await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: Math.ceil(totalPages / 25), images: response.data.photos, current: pageNum });
 >>>>>>> done with UI
     }
+  }).catch(err => {
+    res.status(500).send(err ? err : "Internal Server Error");
   })
 });
 
