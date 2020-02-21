@@ -10,8 +10,8 @@
         <a href="/" class="back-button">
             <i class="fa fa-arrow-alt-circle-left fa-5x"></i>
         </a>
-        <h1 class="main-header"><%= page %></h1>
         <%- include('partials/bigSol', {sol: sol, data: data});%>
+        <h1 class="main-header">Photos of Mars on <%= page %> </h1>
         <%- include('partials/images', {sol:sol, images:images, pages:pages, current:current}) %>
     </div>
 </body>

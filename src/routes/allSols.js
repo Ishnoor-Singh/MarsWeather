@@ -14,7 +14,8 @@ function setDateFromString(date, dateString) {
   return date;
 }
 
-async function getTotalPages(solNum) {
+//helps calculate the total number of entries
+async function getTotalEntries(solNum) {
   let response = await axios("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" + solNum + "&api_key=" + NASA_KEY);
   return await response.data.photos.length;
 }
@@ -38,7 +39,7 @@ router.get('/', function (req, res, next) {
   })
 });
 
-
+//gets the page for displaying the data of a particular 
 router.get('/sol/:solNum/page/:pageNumber', function (req, res, next) {
   const solNum = req.params.solNum;
   const pageNum = req.params.pageNumber;
@@ -58,12 +59,46 @@ router.get('/sol/:solNum/page/:pageNumber', function (req, res, next) {
     return solData;
     // res.render('oneSol', { page: "Sol" + solNum, sol: solNum, data: solData });
   }).then(async data => {
-    let totalPages = await getTotalPages(solNum);
+    let totalPages = Math.ceil((await getTotalEntries(solNum)) / 25);
     if (totalPages >= pageNum) {
       let response = await axios("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=" + pageNum + "&api_key=" + NASA_KEY);
-      await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: Math.ceil(totalPages / 25), images: response.data.photos, current: pageNum });
+      await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: totalPages, images: response.data.photos, current: pageNum });
     }
   }).catch(err => {
+    res.status(500).send(err ? err : "Internal Server Error");
+  })
+});
+
+
+//Made to decrease load times, it avoids waiting for one async call
+router.get('/sol/:solNum/page/:pageNumber/total/:totalPages', function (req, res, next) {
+  const solNum = parseInt(req.params.solNum);
+  const pageNum = parseInt(req.params.pageNumber);
+  axios({
+    baseURL: 'https://api.nasa.gov/',
+    method: "get",
+    url: "insight_weather/?api_key=" + NASA_KEY + "&feedtype=json&ver=1.0"
+  }).then(response => {
+    if (!response.data[solNum]) {
+      res.status(404).send("Sol is not found, is it one of the last seven?").statusCod
+    }
+    return response.data[solNum];
+  }).then(data => {
+    let solData = Object.assign({}, data);
+    solData.date = new Date();
+    setDateFromString(solData.date, data["First_UTC"])
+    return solData;
+  }).then(async data => {
+    let totalPages = parseInt(req.params.totalPages);
+    if (totalPages >= pageNum) {
+      let response = await axios("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=" + pageNum + "&api_key=" + NASA_KEY);
+      await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: totalPages, images: response.data.photos, current: pageNum });
+    }
+    else {
+      console.log("why")
+    }
+  }).catch(err => {
+    console.log(err);
     res.status(500).send(err ? err : "Internal Server Error");
   })
 });
