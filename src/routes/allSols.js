@@ -64,6 +64,9 @@ router.get('/sol/:solNum/page/:pageNumber', function (req, res, next) {
       let response = await axios("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=" + pageNum + "&api_key=" + NASA_KEY);
       await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: totalPages, images: response.data.photos, current: pageNum });
     }
+    else {
+      res.status(404).send("Page out of bounds.")
+    }
   }).catch(err => {
     res.status(500).send(err ? err : "Internal Server Error");
   })
@@ -95,7 +98,7 @@ router.get('/sol/:solNum/page/:pageNumber/total/:totalPages', function (req, res
       await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: totalPages, images: response.data.photos, current: pageNum });
     }
     else {
-      console.log("why")
+      res.status(404).send("Page out of bounds.")
     }
   }).catch(err => {
     console.log(err);
