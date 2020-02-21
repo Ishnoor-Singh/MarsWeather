@@ -28,23 +28,20 @@
         <% if (i == current) { %>
         <li class="active"><a><%= i %></a></li>
         <% } else { %>
-        <<<<<<< HEAD <li><a href="/<%= sol %>/<%= i %>"><%= i %></a></li>
-            =======
-            <li><a href="/sol/<%= sol %>/page/<%= i %>"><%= i %></a></li>
-            >>>>>>> done with UI
-            <% } %>
-            <% if (i == Number(current) + 4 && i < pages) { %>
-            <li class="disabled"><a>...</a></li>
-            <% } %>
-            <% } %>
-            <% if (current == pages) { %>
-            <li class="disabled"><a>Last</a></li>
-            <% } else { %>
-            <<<<<<< HEAD <li><a href="/<%= sol %>/<%= pages %>">Last</a></li>
-                =======
-                <li><a href="/sol/<%= sol %>/page/<%= pages %>">Last</a></li>
-                >>>>>>> done with UI
-                <% } %>
+        <li><a href="/sol/<%= sol %>/page/<%= i %>"><%= i %></a></li>
+
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+        <li class="disabled"><a>...</a></li>
+        <% } %>
+        <% } %>
+        <% if (current == pages) { %>
+        <li class="disabled"><a>Last</a></li>
+        <% } else { %>
+
+        <li><a href="/sol/<%= sol %>/page/<%= pages %>">Last</a></li>
+
+        <% } %>
     </ul>
     <% } %>
 </div>
