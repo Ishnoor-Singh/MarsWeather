@@ -4,25 +4,29 @@
             <h1 class="sol-num">
                 Sol <%= sol %>
             </h1>
-            <h1 class="sol-date">
+            <h1 class="sol-date" style="margin:0">
                 <%= data.date.toString().substring(0, 15) %>
             </h1>
         </div>
         <div class="sol-season">
             <% if(data.Season === "summer"){ %>
-            <h1 class="season-name summer"><i class=" icon fas fa-sun"></i>&nbsp;&nbsp;&nbsp;&nbsp;Summer</h1>
+            <h1 class="season-name summer"><i class=" icon fas fa-sun"></i>&nbsp;Summer</h1>
             <% } %>
             <% if(data.Season === "fall"){ %>
-            <h1><i class="icon fa fa-leaf"></i>&nbsp;&nbsp;&nbsp;&nbsp;Fall</h1>
+            <h1><i class="icon fa fa-leaf"></i>&nbsp;Fall</h1>
             <% } %>
             <% if(data.Season === "spring"){ %>
-            <h1><i class="icon fa fa-cloud"> </i>&nbsp;&nbsp;&nbsp;&nbsp;Spring</h1>
+            <h1><i class="icon fa fa-cloud"> </i>&nbsp;Spring</h1>
             <% } %>
             <% if(data.Season === "winter"){ %>
-            <h1><i class="icon fa fa-snowflake-o"> </i>&nbsp;&nbsp;&nbsp;&nbsp;Winter</h1>
+            <h1><i class="icon fa fa-snowflake-o"> </i>&nbsp;Winter</h1>
             <% } %>
+            <h1 class="sol-date" style="margin:0">
+                Season on Mars
+            </h1>
         </div>
     </div>
+    <br><br>
     <div class="sol-row">
         <div class="data-container">
             <span class="data-header">

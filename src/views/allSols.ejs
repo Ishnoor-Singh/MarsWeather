@@ -7,13 +7,13 @@
 
 <body>
   <div class="sol-page-container">
-    <h3><%= page %></h3><br>
-    <%- include('partials/bigSol', {sol: sols[6], data: solsData[sols[6]]});%>
-    <div class="sol-row">
-      <% sols.forEach(function(sol){ %>
-      <%- include('partials/smallSol', {sol: sol, data: solsData[sol]}); %>
-      <% }); %>
-    </div>
+    <h1 class="main-header"><%= page %></h3><br>
+      <%- include('partials/bigSol', {sol: sols[6], data: solsData[sols[6]]});%>
+      <div class="sol-row">
+        <% sols.forEach(function(sol){ %>
+        <%- include('partials/smallSol', {sol: sol, data: solsData[sol]}); %>
+        <% }); %>
+      </div>
   </div>
   </div>
 </body>

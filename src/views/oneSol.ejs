@@ -7,12 +7,13 @@
 
 <body>
     <div class="sol-page-container">
-        <h3><%= page %></h3><br>
+        <a href="/" class="back-button">
+            <i class="fa fa-arrow-alt-circle-left fa-5x"></i>
+        </a>
+        <h1 class="main-header"><%= page %></h1>
         <%- include('partials/bigSol', {sol: sol, data: data});%>
         <%- include('partials/images', {sol:sol, images:images, pages:pages, current:current}) %>
     </div>
 </body>
-
-</html>
 
 </html>

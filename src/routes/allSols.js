@@ -19,7 +19,11 @@ async function getTotalPages(solNum) {
   return await response.data.photos.length;
 }
 
+<<<<<<< HEAD
 /* GET home page. */
+=======
+
+>>>>>>> done with UI
 router.get('/', function (req, res, next) {
   axios({
     baseURL: 'https://api.nasa.gov/',
@@ -32,14 +36,18 @@ router.get('/', function (req, res, next) {
       solsData[sol] = Object.assign({}, response.data[sol]);
       solsData[sol].date = new Date();
       setDateFromString(solsData[sol].date, response.data[sol]["First_UTC"])
-      console.log(solsData[sol].date);
     });
     res.render('allSols', { page: "Last Seven Sols", sols: solList, solsData: solsData })
   }).catch((err) => console.error())
 });
 
+<<<<<<< HEAD
 /* GET users listing. */
 router.get('/:solNum/:pageNumber', function (req, res, next) {
+=======
+
+router.get('/sol/:solNum/page/:pageNumber', function (req, res, next) {
+>>>>>>> done with UI
   const solNum = req.params.solNum;
   const pageNum = req.params.pageNumber;
   axios({
@@ -61,7 +69,11 @@ router.get('/:solNum/:pageNumber', function (req, res, next) {
     let totalPages = await getTotalPages(solNum);
     if (totalPages >= pageNum) {
       let response = await axios("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=" + pageNum + "&api_key=" + NASA_KEY);
+<<<<<<< HEAD
       await res.render('oneSol', { page: "Sol" + solNum, sol: solNum, data: data, pages: totalPages, images: response.data.photos, current: pageNum });
+=======
+      await res.render('oneSol', { page: "Sol " + solNum, sol: solNum, data: data, pages: Math.ceil(totalPages / 25), images: response.data.photos, current: pageNum });
+>>>>>>> done with UI
     }
   })
 });

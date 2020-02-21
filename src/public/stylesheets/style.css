@@ -11,15 +11,33 @@ body {
   width:100%;
   height:100%;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
-  font: 14px 'Tomorrow', sans-serif;
   color: white;
+  /* overflow:scroll; */
+  background-image: url("https://www.teslarati.com/wp-content/uploads/2018/11/nasa-mars-insight-landing.jpg");
+  background-size: cover; 
+  background-attachment: fixed;
+}
+
+img{
+  width:100%;
+  height:100px;
 }
 
 a {
   color: #00B7FF;
 }
 
+
+
+.main-header{
+  font-size: 100px;
+  font-weight: 800;
+  color: #1d2851;
+}
+
 .small-sol-clicker{
+  margin: 50px;
+  padding: 10px;
 }
 
 .small-sol-clicker:hover{
@@ -27,13 +45,14 @@ a {
 }
 
 .small-sol-temp-high{
-  padding:3px;
+  padding:7px;
+  font-size: 30px;
   color: #fed93d;
 }
 
 .small-sol-temp-low{
-  padding:3px;
-
+  padding:7px;
+  font-size: 30px;
   color: #0753b6;
 }
 
@@ -46,34 +65,54 @@ a {
 }
 
 .small-sol-pressure-high{
-  padding:3px;
-
+  padding:7px;
+  font-size: 30px;
   color: #ea4334;
 }
 
 .small-sol-pressure-low{
-  padding:3px;
-
+  padding:7px;
+  font-size: 30px;
   color: #03bb48;
 }
 
+.back-button{
+  color:white;
+  position: absolute;
+  left:10px;
+  top:40px;
+}
+
+.back-button:hover{
+  text-decoration: none;
+}
+
+.img-container{
+  max-height:25%;
+  max-width:25%;
+}
 
 
 .sol-page-container{
+  position: absolute;
+  left:0;
+  top:0;
   display: flex;
   margin:0px;
-  padding:0px;
+  /* padding:10%; */
   flex-direction: column;
   width:100%;
-  height:100%;
+  /* min-height:100%; */
   align-items: center;
   justify-content: center;
-  /* background-color: rgba(255,0,0,1); */
-  background-image: url("https://www.teslarati.com/wp-content/uploads/2018/11/nasa-mars-insight-landing.jpg");
-  background-size: cover; 
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-x: hidden;
+  overflow-y: scroll; */
+  font: 14px 'Tomorrow', sans-serif;
+}
 
+.images-container{
+  /* max-height:25vh; */
+  /* overflow-x: scroll; */
 }
 
 .solList{
@@ -81,21 +120,27 @@ a {
 }
 .small-sol-num{
   font-weight: 700;
+  font-size:30px;
 }
 
 .small-sol{
+  min-width:130px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   background-color: rgba(0,0,0,0.6);
-  margin: 50px;
-  padding: 10px;
   border: 0;
   color:white;
   border-radius: 10px;
   cursor:pointer;
+  border: 5px solid rgba(0,0,0,0);;
+}
+
+.small-sol:hover{
+  border: 5px solid #ffffff;
+  background-color: rgba(0,0,0,0.3);
 }
 
 .big-sol{
@@ -112,6 +157,9 @@ a {
   flex-grow: 1;
   width: 80%;
   padding:40px;
+  flex-basis: 1;
+  
+  /* max-height:400px; */
 }
 
 .sol-num{
@@ -141,10 +189,16 @@ a {
   width :90%;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
+  /* margin-top:40px; */
 }
 
 .sol-season{
   font-family: 'Tomorrow', sans-serif;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
 }
 
 .season-name{
@@ -165,7 +219,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 40px;
+  /* margin: 40px; */
   flex-grow:1;
   border: 3px;
   border-color:white;
